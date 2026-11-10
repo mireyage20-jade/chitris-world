@@ -25,7 +25,7 @@
 <script>
 (function () {
   var MAIN = 'https://chitritosworld.com/', ALT = 'https://chitris-world.web.app/';
-  var rest = location.search + location.hash, done = false;   // conserva ?join=CÓDIGO, ?go=…, ?wall=1
+  var rest = (location.search || '?de=github') + location.hash, done = false;   // conserva ?join=CÓDIGO, ?go=…, ?wall=1
   function go(u) { if (done) return; done = true; document.getElementById('go').href = u + rest; location.replace(u + rest); }
   /* limpia la app vieja instalada en esta dirección */
   try { navigator.serviceWorker && navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); }); } catch (e) {}
